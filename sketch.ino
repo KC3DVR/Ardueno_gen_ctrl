@@ -6,21 +6,21 @@
 
 LiquidCrystal_I2C lcd(I2C_ADDR, LCD_COLUMNS, LCD_LINES);
 
-int startbutton=(A3);
-int stopbutton=(A2);
-int starter=(2);
-int run=(3);
-int runing=(4);
-int oilpress=(5);
-int pwrfail=(6);
-int pwrnml=(7);
-int nmrlind=(8);
-int pwrfind=(9);
-int tfrsw=(10);
+int startbutton=(A3); //pushbutton input so manuly triger the start sequence
+int stopbutton=(A2); //stop push button
+int starter=(2); //out put to the starter relay
+int run=(3); //ignition or engine enable
+int runing=(4); // in put to the controler form the einge saying its running (up to you to figure out what that is)
+int oilpress=(5); // the engine this was designed for has a murphy swirtch might have to cmment out the code for this if you dont have one. 
+int pwrfail=(6); // power fail indicator
+int pwrnml=(7); // power normal indicator
+int nmrlind=(8); //out put form this pin if fed to a relay that is sued in the auto sequence
+int pwrfind=(9); // same as above but for power fail
+int tfrsw=(10); // out put to transfer switch
 
 String cmd = String("STOP");
 String status = String("STANDBY");
-String autocmd = String("A");
+String autocmd = String("A"); // not actuly used left over form a test i was doign but too scared to get rid of it i guess. 
 
 void setup() {
     // Inintal LCD set up
