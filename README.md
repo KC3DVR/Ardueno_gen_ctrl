@@ -1,7 +1,7 @@
 # Ardueno_gen_ctrl
 Arduino Generator Controler
 
-I created thsi out of nisesity, we had a generator, and the transfer switch but no brains. 
+I created this out of nisesity, we had a generator, and the transfer switch but no brains. 
 
 The hang up are 
   1. im no software dev. so the code is cringe worthy at best
