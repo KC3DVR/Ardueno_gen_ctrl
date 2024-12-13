@@ -1,0 +1,69 @@
+//i foudn this while lookign arround on line https://forum.arduino.cc/t/help-with-my-generator-controller/1038538
+ int timer1 = 700;
+ int timer2 = 1000;
+ int timer3 = 5000;
+ int timer4 = 10000;
+ int timer5 = 30000;
+ const int buttonPin1 = 10;
+ int buttonState = 0;
+void setup() {
+  Serial.begin(9600);
+  pinMode(2, OUTPUT);         //Reset
+  pinMode(3, OUTPUT);         //Fuel Pump Primer
+  pinMode(4, OUTPUT);         //Starter Relay
+  pinMode(5, OUTPUT);         //Output Power From Generator Control Relay
+  pinMode(7, OUTPUT);         //Kill Switch Relay
+  pinMode(10, INPUT);         //Generator Running Relay
+  pinMode(13, OUTPUT);        //On Board LED
+  pinMode(buttonPin1, INPUT);
+  Serial.println("SYSTEM STARTUP");
+  delay(timer2);
+  Serial.println ("KILL SWITCH OFF");
+  digitalWrite(7, HIGH);
+  delay(timer3);
+  Serial.println ("FUEL LINE PRIMING");
+  digitalWrite(3, HIGH);
+  delay(timer5);
+  digitalWrite(3, LOW);
+  Serial.println ("DONE PRIMING FUEL LINE");
+  delay(timer3);
+  Serial.println ("STARTER ENGAGED");
+  digitalWrite(4, HIGH);
+  delay(timer3);
+  Serial.println ("STARTER DISENGAGED");
+  digitalWrite(4, LOW);
+  delay(timer4); 
+  buttonState = digitalRead(buttonPin1);
+
+ if(buttonState == HIGH){
+
+Serial.println ("SYSTEM RUNNING"); 
+digitalWrite(5, HIGH);
+}else{
+  
+  Serial.println ("ERROR DURING STARTUP SEQUENCE - SYSTEM RESTARTING");
+  digitalWrite(5, LOW);
+  delay(timer1);
+  digitalWrite(7, LOW);
+  delay(timer3);
+  digitalWrite(2, HIGH);
+ 
+}
+}
+void loop(){
+  buttonState = digitalRead(buttonPin1);
+  
+  if(buttonState == LOW){
+    Serial.println ("ERROR IN ELECRTICAL SYSTEM - SYSTEM RESTARTING");
+    digitalWrite(5, LOW);
+    delay(timer1);
+    digitalWrite(7, LOW);
+    delay(timer3);
+    digitalWrite(2, HIGH);
+  }else{ 
+  digitalWrite(13, HIGH);
+  delay(timer1);
+  digitalWrite(13, LOW);
+  delay(timer1);
+}
+}
