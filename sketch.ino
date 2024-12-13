@@ -8,9 +8,9 @@ LiquidCrystal_I2C lcd(I2C_ADDR, LCD_COLUMNS, LCD_LINES);
 
 int startbutton=(A3); //pushbutton input so manuly triger the start sequence
 int stopbutton=(A2); //stop push button
-int starter=(2); //out put to the starter relay
+int starter=(2); //output to the starter relay
 int run=(3); //ignition or engine enable
-int runing=(4); // in put to the controler form the einge saying its running (up to you to figure out what that is)
+int runing=(4); // input to the controler from the einge saying its running (up to you to figure out what that is)
 int oilpress=(5); // the engine this was designed for has a murphy swirtch might have to cmment out the code for this if you dont have one. 
 int pwrfail=(6); // power fail indicator
 int pwrnml=(7); // power normal indicator
