@@ -14,7 +14,7 @@ int runing=(4); // input to the controler from the einge saying its running (up 
 int oilpress=(5); // the engine this was designed for has a murphy swirtch might have to cmment out the code for this if you dont have one. 
 int pwrfail=(6); // power fail indicator
 int pwrnml=(7); // power normal indicator
-int nmrlind=(8); //out put form this pin if fed to a relay that is sued in the auto sequence
+int nmrlind=(8); //output form this pin is fed to a relay that is used in the auto sequence
 int pwrfind=(9); // same as above but for power fail
 int tfrsw=(10); // out put to transfer switch
 
